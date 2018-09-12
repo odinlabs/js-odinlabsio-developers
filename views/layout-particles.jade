@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div
+      .header-blue
+        nav.navbar.navbar-default.navigation-clean-search
+          .container
+            .navbar-header
+              a.navbar-brand(href='/') Odin
+              button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+            block navbar
+        div.outerbox#particles-js
+          include particles-script.jade
+          div.innerbox
+            .container.hero
+              block container

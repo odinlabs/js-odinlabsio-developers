@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  .container
+    .page-header
+      .row
+        .col-sm-4
+          .form-group
+            label.sr-only(for="input-check-node" value="Search...") Search Tree:
+            input#input-check-node.form-control(type="text")
+          .form-group
+            .col-sm-4
+              button#btn-check-node.btn.btn-block.btn-success.check-node Check Node
+              button#btn-uncheck-node.btn.btn-block.btn-danger.check-node Uncheck Node
+          hr
+          .row.form-group
+            .col-sm-4
+              button#btn-check-all.btn.btn-block.btn-warning Check All
+              button#btn-uncheck-all.btn.btn-block.btn-primary Uncheck All
+        .col-sm-4
+          ul
+            for tree in treeSet
+              button(id='btn-show-tree-#{tree.id}', class='btn btn-block') #{tree.id}
+              div(id='treeview-#{tree.id}', class='treeview')
+              br
+        .col-sm-2
+          div#checkable-output
+        script.
+          var treeData = '!{JSON.stringify(treeSet)}';
+    script(type="text/javascript" src='/assets/jquery.min.js')
+    script(type="text/javascript" src='/assets/bootstrap-treeview.min.js')
+    script(type="text/javascript" src='javascripts/treeselection.js')

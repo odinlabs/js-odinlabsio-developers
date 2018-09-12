@@ -1,0 +1,35 @@
+[
+    {
+        "text":"ecommerceDataHierarchy",
+        "nodes":[
+                    {
+                        "text":"navigationHistory"
+                    },
+                    {
+                        "text":"transaction"
+                    }
+                ]
+    },
+    {
+        "text":"financeDataHierarchy",
+        "nodes":[
+                    {
+                        "text":"transaction"
+                    }
+                ]
+    },
+    {
+        "text":"contactDataHierarchy",
+        "nodes":[
+                    {
+                        "text":"address"
+                    },
+                    {
+                        "text":"email"
+                    },
+                    {
+                        "text":"name"
+                    }
+                ]
+    }
+]

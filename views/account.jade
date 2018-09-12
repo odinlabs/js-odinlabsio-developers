@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  div
+    .header-blue
+      nav.navbar.navbar-default.navigation-clean-search
+        .container
+          .navbar-header
+            a.navbar-brand(href='/') Odin
+            button.navbar-toggle.collapsed(data-toggle='collapse', data-target='#navcol-1')
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+          #navcol-1.collapse.navbar-collapse
+            p.navbar-text.navbar-right
+              a.btn.btn-default.action-button(role='button', href='/account/logout') Log out
+      .container.hero
+        block account
+
+

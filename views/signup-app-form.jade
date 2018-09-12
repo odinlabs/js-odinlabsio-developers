@@ -1,0 +1,48 @@
+.row.interactive
+  .col-sm-6.col-sm-offset-3
+    h1
+      span.fa.fa-sign-in
+      |  Signup
+    // message if any
+    if message.length
+      .alert.alert-danger= message
+    // SIGNUP FORM
+    form(action='/signup', method='post')
+      .form-group
+        label AppName
+        .input-group
+          span.input-group-addon
+            span.glyphicon.glyphicon-cloud
+          input.form-control(type='text', name='applicationName')
+      .form-group
+        label Password
+        .input-group
+          span.input-group-addon
+            span.glyphicon.glyphicon-eye-close
+          input.form-control(type='password', name='password')
+      .form-group
+        label DSSO URI
+        .input-group
+          span.input-group-addon
+            span url
+          input.form-control(type='url', name='redirectURI')
+      .form-group
+        label Description
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-pencil
+          textarea.form-control(type='textarea', name='description', rows='5', placeholder='Tell your user about your app!')
+      .form-group
+        label Logo
+        .input-group
+          span.input-group-addon
+            i.glyphicon.glyphicon-picture
+          input.form-control(type='textarea', name='logo', placeholder='!!!TODO import logo!!!')
+      button.btn.btn-warning.btn-lg(type='submit') Signup
+    hr
+    p
+      | Already have an account?
+      a(href='/login')  Login
+    p
+      span.fa.fa-home
+      a(href='/')   Odin

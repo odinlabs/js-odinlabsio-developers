@@ -1,0 +1,13 @@
+div#di-app-edit-settings-oauth
+  .row
+    .col-sm-11.col-sm-offset-1
+        .row#uris
+        .row
+          .col-sm-10
+            span.btn.glyphicon.glyphicon-plus#add-uri
+  script(type='text/javascript').
+    var redirectUris = '!{JSON.stringify(redirectUris)}';
+br
+br
+script(type="text/javascript" src='/assets/jquery.min.js')
+script(type="text/javascript" src='/javascripts/account-app-settings-oauth.js')

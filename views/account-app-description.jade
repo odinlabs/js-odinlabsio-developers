@@ -1,0 +1,18 @@
+div#di-app-edit-desc-form
+  .row
+    .col-sm-8.col-sm-offset-1
+      form(id='form-desc', action='javascript: return;')
+        .form-group
+          label Description
+          .input-group
+            span.input-group-addon
+              i.glyphicon.glyphicon-pencil
+            textarea.form-control(type='textarea', name='description', rows='5', placeholder='Tell your user about your app!') #{client.appDescription}
+        .form-group
+          label Logo
+          .input-group
+            span.input-group-addon
+              i.glyphicon.glyphicon-picture
+            input.form-control(type='textarea', name='logo', placeholder='!!!TODO import logo!!!')
+        button.btn.btn-info.btn-lg(type='submit') Save
+script(type="text/javascript" src='/javascripts/account-app-description.js')

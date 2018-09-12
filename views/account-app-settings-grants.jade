@@ -1,0 +1,32 @@
+div#di-app-edit-grants
+  .row
+    .col-sm-5
+      p Permission Name
+    .col-sm-7
+      p Permission Grants
+  .row
+    .col-sm-5
+      #dynamic-permission-list
+      span.btn.glyphicon.glyphicon-plus#add-permission
+    .col-sm-7
+      .row
+        .col-sm-7
+          .form-group
+          label.sr-only(for="input-check-node" value="Search...") Search Tree:
+          input#input-check-node.form-control(type="text")
+        .col-sm-5
+          button(type='button')#btn-check-selected.btn.btn-block.btn-danger Check Selection
+          button(type='button')#btn-uncheck-selected.btn.btn-block.btn-sucess Uncheck Selection
+      hr
+      #dynamic-permission-grants
+  button.btn.btn-warning.btn-lg#submit-desc(type='submit', disabled) Save
+  div
+    script(type='text/javascript').
+      var schema = '!{JSON.stringify(grantsSchema)}';
+br
+br
+script(type="text/javascript" src='/assets/jquery.min.js')
+script(type="text/javascript" src='/assets/bootstrap-treeview.min.js')
+script(type="text/javascript" src='/javascripts/account-app-settings-grants.js')
+br
+br

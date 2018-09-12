@@ -1,0 +1,101 @@
+ // check/uncheck
+  $('#btn-check-node.check-node').on('click', function (e) {
+    for (let view of $views) { 
+      var checkableNodes = findCheckableNodess(view.tree);
+      if ((checkableNodes.length >= 1)) {
+        renderTreeView(view);
+        view.tree.treeview('checkNode', [ checkableNodes, { silent: true }]);
+      }
+    }
+  });
+      
+  $('#btn-uncheck-node.check-node').on('click', function (e) {
+    for (let view of $views) { 
+      var checkableNodes = findCheckableNodess(view.tree);
+      if ((checkableNodes.length >= 1)) {
+        renderTreeView(view);
+        view.tree.treeview('uncheckNode', [ checkableNodes, { silent: true }]);
+      }
+    }
+  });
+
+  function createButtonRenderTreeView(tree) {
+  console.log('treeView single tree', tree);
+  var thisTree = tree;
+  var btnshowtreeId = '#btn-show-tree-' + tree.id;
+  thisTree.hide = false;
+}
+
+/** tree selection controller */
+function renderTreeView(tree) {
+  var treeview = '#treeview-' + tree.id;
+  
+  if (tree.hide) {
+    $holder[treeview] = $(treeview).contents().detach();
+    tree.hide = false;
+    return;
+  }
+  tree.hide = true;
+  if (typeof $holder[treeview] != "undefined") {
+    $(treeview).append($holder[treeview]);
+    return;
+  }
+  var $checkableTree = $(treeview).treeview({
+    data: tree.tree,
+    showIcon: true,
+    showCheckbox: true,
+  });
+  $checkableTree.on('nodeChecked', function(event, node) {
+    if (typeof node.parentId != "undefined") {
+      $(treeview).treeview('checkNode', [node.parentId, { silent: true }]);
+    }
+  });
+  $checkableTree.on('nodeUnchecked', function(event, node) {
+    if (typeof node['nodes'] != "undefined") {
+      var children = node['nodes'];
+      for (var i=0; i<children.length; i++) {
+        $(treeview).treeview('uncheckNode', [children[i].nodeId, { silent: false } ]);
+      }
+    }
+  });
+  var findCheckableNodess = function() {
+    return $checkableTree.treeview('search', [ $('#input-check-node').val(), { ignoreCase: false, exactMatch: false } ]);
+  };
+  var checkableNodes = findCheckableNodess();
+      
+  // Check/uncheck/toggle nodes
+  $('#input-check-node').on('keyup', function (e) {
+    checkableNodes = findCheckableNodess();
+    $('.check-node').prop('disabled', !(checkableNodes.length >= 1));
+  });æ
+      
+  $('#btn-check-node.check-node').on('click', function (e) {
+    $checkableTree.treeview('checkNode', [ checkableNodes, { silent: true }]);
+  });
+      
+  $('#btn-uncheck-node.check-node').on('click', function (e) {
+    $checkableTree.treeview('uncheckNode', [ checkableNodes, { silent: true }]);
+  });
+  // Check/uncheck all
+  $('#btn-check-all').on('click', function (e) {
+    $checkableTree.treeview('checkAll', { silent: true });
+  });
+      
+  $('#btn-uncheck-all').on('click', function (e) {
+    $checkableTree.treeview('uncheckAll', { silent: true });
+  });
+};
+
+function createButtonRenderTreeView(tree) {
+  console.log('treeView single tree', tree);
+  var thisTree = tree;
+  var btnshowtreeId = '#btn-show-tree-' + tree.id;
+  thisTree.hide = false;
+  $(btnshowtreeId).on('click', function (e) {
+    e.stopPropagation();
+    return renderTreeView(thisTree);
+  });
+}
+
+
+    block content

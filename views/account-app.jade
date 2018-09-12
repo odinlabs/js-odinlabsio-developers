@@ -1,0 +1,61 @@
+extends account
+
+block account
+  .row
+    .col-sm-8.col-sm-offset-2
+      h1.center
+        span.fa.fa-cloud
+        |  #{client.client_id}
+        hr
+    br
+    br
+    br
+  .row
+    .col-sm-8.col-sm-offset-2
+      .media
+        .media-left
+          a.img.media-object
+        .media-body
+          h2.media-heading 
+            span.b 
+            | Application
+          p(style='font-size:11px') Application description
+      a.btn.btn-default.action-button#edit-desc(role='button')  Description
+      hr
+      div#app-edit-desc
+      br
+      br
+  .row
+    .col-sm-8.col-sm-offset-2
+      .media
+          .media-left
+            a.img.media-object
+          .media-body
+            h2.media-heading 
+              span.b 
+              | Application Settings
+            p(style='font-size:11px') Configure OAuth settings.
+      a.btn.btn-default.action-button#edit-settings-oauth(role='button') Settings
+      hr
+      div#app-edit-settings-oauth
+      br
+      br
+  .row
+    .col-sm-8.col-sm-offset-2
+      .media
+          .media-left
+            a.img.media-object
+          .media-body
+            h2.media-heading 
+              span.b 
+              | Application Grants
+            p(style='font-size:11px') Grants are authorization you will be asking to your users.
+      a.btn.btn-default.action-button#edit-grants(role='button') Grants
+      hr
+      div#app-edit-grants
+      br
+      br
+  script(type="text/javascript" src='/assets/jquery.min.js')
+  script(type="text/javascript" src='/javascripts/account-app.js')
+
+            

@@ -1,0 +1,35 @@
+canvas {
+  display: block;
+  vertical-align: bottom;
+  height: 70vh;
+  width: 100vw;
+  background-attachment:fixed;
+}
+
+.breakWord {
+  word-break: break-all;
+}
+
+.interactive {
+  pointer-events: auto;
+}
+
+.btn {
+  pointer-events: auto;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.white {
+  color: whitesmoke;
+}
